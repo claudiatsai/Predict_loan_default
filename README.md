@@ -1,19 +1,24 @@
-# Loan Default Prediction
+# LendingClub Credit Risk Prediction
 
 <img src = "image/personal_loans.webp"/>
 
 # Business Problem
 
-Banks have a huge volume of applicants applying for loans. Some of the applicants do not have credit history or some might have very light credit score. It doesn't mean that lending money to them is highly risky so we should reject all of these applicants. This project uses data about personal loan. Our goal was to develop a model that could step by step explain the results of the model we built and what impact on the likelihood of the case falling into one of the binary categories (loans paid-off and charged). This model predict the 68 % of loan default and would be useful for the banks to make the best decision.
+- LendingClub is the financial service company, which provide borrowing, banking and investing products to general customers, small business and institutions
+- Unsecured Consumer Loan is the primary product that brings high yield to the company
+- This project is to build a model to help LendingClub prevent below cases
+- - Business loss- rejecting a borrower who is actually able to repay the loan
+- - Capital loss- approving a borrower who ends up not being able to repay the loan 
 
 # Data
 
 - LendingClub loan dataset
 - Data range from 2007 to 2018
-- 2.3M observations
+- 2.3M applications
 - 151 features
-- Loan status, interest rate, grade/subgrade, home ownership,annual income, etc
-- https://www.kaggle.com/datasets/wordsforthewise/lending-club
+- Data features: loan status, interest rate, grade/subgrade, home ownership,annual income,employment length, etc
+- Target variable: loan status
+- [Data Source](https://www.kaggle.com/datasets/wordsforthewise/lending-club)
 
 # Methods
 
@@ -33,15 +38,20 @@ Banks have a huge volume of applicants applying for loans. Some of the applicant
 
 ## Baseline Model
 
-- Recall score 66%
-- Accuracy score 65%
+- Random Forest Model
+- Out of all the loans that actually did default, the model predicted this outcome correctly for 68% of those loans
+- Out of all the loans that the model predicted would not default, 64 % actually did not
 
 <img src = "image/baseline_model.png"/>
 
 ## Final Model
 
-- Recall score 68%
-- Accuracy score 66%
+- Recall score improved in XGBoost Model 
+- Out of all the loans that actually did default, the model predicted this outcome correctly for 68% of those loans
+- Out of all the loans that the model predicted would not default, 64 % actually did not
+- In this case, I chose the model with high precision score and high recall score
+- High precision: Not many loan defaults were predicted as good loans
+- High recall: Predicted most loan defaults correctly
 
 <img src = "image/final_model.png"/>
 
@@ -49,20 +59,19 @@ Banks have a huge volume of applicants applying for loans. Some of the applicant
 
 <img src = "image/feature_importance.png"/>
 
-# Conclusions
+# Recommendation
 
-Interest Rate, term, subgrade, and home ownership affect the model prediction most.
-
-Our model achieved achieve 68% prediciton on the test set. 
-
-
-From the confusion matrix, we can see our classifier has high recall. This means the proportion of borrowers predicted to default the loan is high.
+- Balance transer- recommend borrower pay down  existing credit card debt 
+- Loan consolidation- consolidate the loans into a fixed-rate term loan
+- Joint application- borrowers may receive a better rate when they jointly apply for a personal loan
 
 # Future Improvements
 
-- More classification models should be tried out
-- Analyze the data by region or state to help banks to assess credit risk, provide accurate credit scores and make decisions on their loans in minutes after receiving each new incoming loan application
-- Set up different threshold to improve recall score by business goal. It's because the binary classification models usually give the prediction of probability first and then assign the probabilities to 1 or 0 based on the default threshold of 0.5
+- Further analysis for higher annual income and higher FICO score customers- help the bank to make specific products for this group of customers
+- Target to members’ core needs - utilize  a scalable technology platform to  lower the cost of their debt and/or improve the returns on their savings
+
+- Attract new members - target to potential customers who search loan information by search engines or social media. Offer incentive to  current customer  by relationship referrals.  Advertise through the website, targeted online advertising, online aggregation partners, or direct mail
+- Retain current members -offer return members with better rate if they need another loan or deposit product which increases the lifetime value of members while helping them improve their financial health
 
 # Repository Structure
 
