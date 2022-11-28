@@ -88,6 +88,11 @@
 
 ```
 
+# Link to presentation and notebook
+
+- [Presentation](https://github.com/claudiatsai/Predict_loan_default/blob/main/Lending%20Club_Presentation.pdf)
+- [Notebook](https://github.com/claudiatsai/Predict_loan_default/blob/main/project_loan_1.ipynb)
+
 
 ```python
 
